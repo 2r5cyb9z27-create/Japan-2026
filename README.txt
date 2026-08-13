@@ -1,38 +1,21 @@
-JAPAN 2026 TRAVEL APP - VERSION 1
+JAPAN 2026 V2
 
-What this is
-------------
-A lightweight Progressive Web App (PWA) generated from the 20-page Japan itinerary PDF.
-It runs on iPhone, Android, Mac and PC in a normal browser.
+SOURCE OF TRUTH
+master.json is now the master itinerary. The graphical itinerary pages are optional references only.
 
-Features
---------
-- 20 itinerary pages in travel sequence
-- Human-readable day / location navigation
-- "Open vandaag" automatically selects the relevant itinerary date during Oct 10-24, 2026
-- Full-screen page viewer
-- Previous / Next navigation
-- Swipe left/right between pages on phones
-- Offline cache after the app has been opened once
-- Add-to-Home-Screen compatible manifest and icons
+ADMIN WORKFLOW
+1. Open app -> Admin.
+2. Select a day/page.
+3. Edit title, city and activities.
+4. 'Lokaal opslaan' lets you test immediately on that device.
+5. 'Exporteer master.json'.
+6. In GitHub repository japan-2026, replace ONLY master.json with the exported file.
+7. Refresh/reopen the app. The new itinerary is now the published master.
 
-Important
----------
-A PWA must be served over HTTPS (or localhost) for installation/offline service-worker support.
-Opening index.html directly from Files will show the app, but installation/offline caching may not work.
+That changes the maintenance chain from:
+Excel -> image -> PDF -> app
+to:
+Admin -> master.json -> app
 
-Quick local preview on a computer
----------------------------------
-1. Unzip this folder.
-2. Open Terminal / Command Prompt in the folder.
-3. Run: python3 -m http.server 8000
-4. Open: http://localhost:8000
-
-For iPhone / Android installation
----------------------------------
-Host the folder on any normal HTTPS static host (GitHub Pages, Netlify, Cloudflare Pages, etc.).
-Then:
-- iPhone Safari: Share -> Add to Home Screen
-- Android Chrome: menu -> Install app / Add to Home screen
-
-This is deliberately a Version 1: the itinerary pages are preserved exactly as designed, while the app adds navigation around them.
+V2 also includes Today, Get Me To Hotel, hotel/attraction route links, official-site buttons,
+phrasebook with Japanese audio, offline caching, and a Print/PDF view from the same master.

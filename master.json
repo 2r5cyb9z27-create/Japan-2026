@@ -1,0 +1,616 @@
+{
+  "trip": {
+    "name": "Japan 2026",
+    "start": "2026-10-10",
+    "end": "2026-10-24",
+    "subtitle": "Tokyo · Hakone · Kyoto · Hiroshima · Tokyo"
+  },
+  "hotels": [
+    {
+      "id": "prince-park",
+      "name": "The Prince Park Tower Tokyo",
+      "city": "Tokyo",
+      "address": "4-8-1 Shibakoen, Minato City, Tokyo",
+      "website": "https://www.princehotels.com/parktower/",
+      "maps_query": "The Prince Park Tower Tokyo"
+    },
+    {
+      "id": "granvia-hiroshima",
+      "name": "Hotel Granvia Hiroshima",
+      "city": "Hiroshima",
+      "address": "1-5 Matsubaracho, Minami Ward, Hiroshima",
+      "website": "https://www.hgh.co.jp/english/",
+      "maps_query": "Hotel Granvia Hiroshima"
+    },
+    {
+      "id": "daiwa-ginza",
+      "name": "Daiwa Roynet Hotel Ginza PREMIER",
+      "city": "Tokyo",
+      "address": "1-13-15 Ginza, Chuo City, Tokyo",
+      "website": "https://www.daiwaroynet.jp/en/ginza/",
+      "maps_query": "Daiwa Roynet Hotel Ginza PREMIER"
+    }
+  ],
+  "places": [
+    {
+      "id": "sensoji",
+      "name": "Sensō-ji",
+      "website": "https://www.senso-ji.jp/english/",
+      "maps_query": "Senso-ji Tokyo"
+    },
+    {
+      "id": "ameyoko",
+      "name": "Ameyoko",
+      "website": "https://www.ameyoko.net/",
+      "maps_query": "Ameyoko Shopping District Tokyo"
+    },
+    {
+      "id": "ueno",
+      "name": "Ueno Park",
+      "website": "https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno/en_index.html",
+      "maps_query": "Ueno Park Tokyo"
+    },
+    {
+      "id": "shibuya",
+      "name": "Shibuya Crossing",
+      "website": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
+      "maps_query": "Shibuya Crossing Tokyo"
+    },
+    {
+      "id": "teamlab",
+      "name": "teamLab Planets",
+      "website": "https://www.teamlab.art/e/planets/",
+      "maps_query": "teamLab Planets TOKYO"
+    },
+    {
+      "id": "hamarikyu",
+      "name": "Hamarikyu Gardens",
+      "website": "https://www.tokyo-park.or.jp/park/hama-rikyu-gardens/index.html",
+      "maps_query": "Hamarikyu Gardens Tokyo"
+    },
+    {
+      "id": "skytree",
+      "name": "Tokyo Skytree",
+      "website": "https://www.tokyo-skytree.jp/en/",
+      "maps_query": "Tokyo Skytree"
+    },
+    {
+      "id": "fushimi",
+      "name": "Fushimi Inari Taisha",
+      "website": "https://inari.jp/en/",
+      "maps_query": "Fushimi Inari Taisha"
+    },
+    {
+      "id": "nishiki",
+      "name": "Nishiki Market",
+      "website": "https://www.kyoto-nishiki.or.jp/",
+      "maps_query": "Nishiki Market Kyoto"
+    },
+    {
+      "id": "peace",
+      "name": "Hiroshima Peace Memorial Museum",
+      "website": "https://hpmmuseum.jp/?lang=eng",
+      "maps_query": "Hiroshima Peace Memorial Museum"
+    },
+    {
+      "id": "itsukushima",
+      "name": "Itsukushima Shrine",
+      "website": "https://www.itsukushimajinja.jp/",
+      "maps_query": "Itsukushima Shrine Miyajima"
+    },
+    {
+      "id": "misen",
+      "name": "Miyajima Ropeway",
+      "website": "https://miyajima-ropeway.info/english/",
+      "maps_query": "Miyajima Ropeway"
+    }
+  ],
+  "days": [
+    {
+      "id": "day-3",
+      "date": "2026-10-10",
+      "title": "Haneda Airport - Terminal 3",
+      "city": "Tokyo I",
+      "reference_page": 3,
+      "hotel_id": "prince-park",
+      "activities": [
+        {
+          "time": "",
+          "title": "Aankomstinstructies",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-4",
+      "date": "2026-10-10",
+      "title": "Dag 1 - Aankomst Tokyo",
+      "city": "Tokyo I",
+      "reference_page": 4,
+      "hotel_id": "prince-park",
+      "activities": [
+        {
+          "time": "",
+          "title": "Shiba Park & eerste avond",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-5",
+      "date": "2026-10-11",
+      "title": "Dag 2 · Asakusa → Ueno → Shibuya",
+      "city": "Tokyo",
+      "reference_page": 5,
+      "hotel_id": "prince-park",
+      "activities": [
+        {
+          "time": "07:00–07:45",
+          "title": "Ontbijt",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "07:50",
+          "title": "Vertrek hotel → Daimon",
+          "note": "Loop naar Daimon. Toei Asakusa Line direct naar Asakusa; geen overstap.",
+          "place": null
+        },
+        {
+          "time": "09:00",
+          "title": "Ontmoet Lauries bij Sensō-ji",
+          "note": "Start van de 6-uurs tour.",
+          "place": "sensoji"
+        },
+        {
+          "time": "Ochtend",
+          "title": "Asakusa & Sensō-ji",
+          "note": "",
+          "place": "sensoji"
+        },
+        {
+          "time": "Daarna",
+          "title": "Ameyoko",
+          "note": "",
+          "place": "ameyoko"
+        },
+        {
+          "time": "Lunch",
+          "title": "Lunch met Lauries",
+          "note": "Flexibel, normale lunchtijd.",
+          "place": null
+        },
+        {
+          "time": "Daarna",
+          "title": "Ueno Park",
+          "note": "",
+          "place": "ueno"
+        },
+        {
+          "time": "±15:00",
+          "title": "Tour eindigt in Shibuya",
+          "note": "Vrije tijd: Shibuya, hotelrust of Ginza afhankelijk van energie.",
+          "place": "shibuya"
+        }
+      ]
+    },
+    {
+      "id": "day-6",
+      "date": "2026-10-12",
+      "title": "Tokyo naar Hakone",
+      "city": "Hakone",
+      "reference_page": 6,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Trein, bagage & aankomst",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-7",
+      "date": "2026-10-12",
+      "title": "Ryokan & Onsen",
+      "city": "Hakone",
+      "reference_page": 7,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Traditionele Japanse overnachting",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-8",
+      "date": "2026-10-12",
+      "title": "Dag 3 - Hakone Highlights",
+      "city": "Hakone",
+      "reference_page": 8,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Museum, Owakudani & Lake Ashi",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-9",
+      "date": "2026-10-13",
+      "title": "Dag 4 - Hakone & naar Kyoto",
+      "city": "Hakone / Kyoto",
+      "reference_page": 9,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Laatste Hakone-ochtend en transfer",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-10",
+      "date": "2026-10-14",
+      "title": "Dag 5 - Oost-Kyoto",
+      "city": "Kyoto",
+      "reference_page": 10,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Kiyomizu, Higashiyama & Gion",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-11",
+      "date": "2026-10-15",
+      "title": "Dag 6 - West-Kyoto & Natuur",
+      "city": "Kyoto",
+      "reference_page": 11,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Arashiyama, trein & rivierboot",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-12",
+      "date": "2026-10-16",
+      "title": "Dag 7 - Osaka",
+      "city": "Kyoto / Osaka",
+      "reference_page": 12,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "",
+          "title": "Volledige dagtrip",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-13",
+      "date": "2026-10-17",
+      "title": "Dag 8 · Zuid-Kyoto & centrum",
+      "city": "Kyoto",
+      "reference_page": 13,
+      "hotel_id": null,
+      "activities": [
+        {
+          "time": "Ochtend",
+          "title": "Fushimi Inari",
+          "note": "",
+          "place": "fushimi"
+        },
+        {
+          "time": "13:15–14:30",
+          "title": "Nishiki Market",
+          "note": "",
+          "place": "nishiki"
+        },
+        {
+          "time": "17:00–18:00",
+          "title": "Hotel / onsen / rust",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "18:30",
+          "title": "Diner Gion / Pontochō",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "20:00–21:40",
+          "title": "Gion Magical Night Walk",
+          "note": "Geisha-cultuur wandeling.",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-14",
+      "date": "2026-10-18",
+      "title": "Dag 9 · Hiroshima",
+      "city": "Hiroshima",
+      "reference_page": 14,
+      "hotel_id": "granvia-hiroshima",
+      "activities": [
+        {
+          "time": "09:00–10:42",
+          "title": "Kyoto → Hiroshima",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "11:20–12:00",
+          "title": "Shukkeien Garden",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "12:10–13:00",
+          "title": "Lunch",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "14:00–16:30",
+          "title": "Historische wandeltocht",
+          "note": "Why the A-Bomb Was Dropped.",
+          "place": null
+        },
+        {
+          "time": "16:30–17:30",
+          "title": "Peace Memorial Museum",
+          "note": "",
+          "place": "peace"
+        }
+      ]
+    },
+    {
+      "id": "day-15",
+      "date": "2026-10-19",
+      "title": "Dag 10 · Miyajima",
+      "city": "Miyajima",
+      "reference_page": 15,
+      "hotel_id": "granvia-hiroshima",
+      "activities": [
+        {
+          "time": "Dag",
+          "title": "Itsukushima Shrine",
+          "note": "",
+          "place": "itsukushima"
+        },
+        {
+          "time": "Middag",
+          "title": "Mount Misen / Ropeway",
+          "note": "",
+          "place": "misen"
+        }
+      ]
+    },
+    {
+      "id": "day-16",
+      "date": "2026-10-20",
+      "title": "Dag 11 - Tokyo Part 2",
+      "city": "Tokyo II",
+      "reference_page": 16,
+      "hotel_id": "daiwa-ginza",
+      "activities": [
+        {
+          "time": "",
+          "title": "Aankomst Ginza",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-17",
+      "date": "2026-10-21",
+      "title": "Dag 12 · teamLab + keuze",
+      "city": "Tokyo",
+      "reference_page": 17,
+      "hotel_id": "daiwa-ginza",
+      "activities": [
+        {
+          "time": "10:00–11:30",
+          "title": "teamLab Planets",
+          "note": "",
+          "place": "teamlab"
+        },
+        {
+          "time": "11:45–12:45",
+          "title": "Lunch Toyosu",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "13:00–15:00",
+          "title": "Hamarikyu Gardens",
+          "note": "",
+          "place": "hamarikyu"
+        },
+        {
+          "time": "15:00",
+          "title": "Beslismoment",
+          "note": "A: helder / uitzicht gewenst → Skytree. B: bewolkt / genoeg uitzichten → Shiodome & Ginza.",
+          "place": null
+        },
+        {
+          "time": "15:30–17:30",
+          "title": "Optie A · Tokyo Skytree",
+          "note": "",
+          "place": "skytree"
+        },
+        {
+          "time": "15:30–17:30",
+          "title": "Optie B · Shiodome & Ginza",
+          "note": "",
+          "place": null
+        },
+        {
+          "time": "Na 17:30",
+          "title": "Terug naar hotel & diner in de buurt",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-18",
+      "date": "2026-10-22",
+      "title": "Dag 13 - Shibuya, Harajuku & Shinjuku",
+      "city": "Tokyo II",
+      "reference_page": 18,
+      "hotel_id": "daiwa-ginza",
+      "activities": [
+        {
+          "time": "",
+          "title": "West-Tokyo",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-19",
+      "date": "2026-10-23",
+      "title": "Dag 14 - Kamakura",
+      "city": "Tokyo II",
+      "reference_page": 19,
+      "hotel_id": "daiwa-ginza",
+      "activities": [
+        {
+          "time": "",
+          "title": "Dagtrip",
+          "note": "",
+          "place": null
+        }
+      ]
+    },
+    {
+      "id": "day-20",
+      "date": "2026-10-24",
+      "title": "Dag 15 - Terugreis naar huis",
+      "city": "Vertrek",
+      "reference_page": 20,
+      "hotel_id": "daiwa-ginza",
+      "activities": [
+        {
+          "time": "",
+          "title": "Haneda & vertrek",
+          "note": "",
+          "place": null
+        }
+      ]
+    }
+  ],
+  "phrases": [
+    {
+      "group": "Basis",
+      "nl": "Goedemorgen",
+      "en": "Good morning",
+      "ja": "おはようございます",
+      "phonetic": "ohayō gozaimasu"
+    },
+    {
+      "group": "Basis",
+      "nl": "Dank u wel",
+      "en": "Thank you",
+      "ja": "ありがとうございます",
+      "phonetic": "arigatō gozaimasu"
+    },
+    {
+      "group": "Basis",
+      "nl": "Pardon / excuseer",
+      "en": "Excuse me",
+      "ja": "すみません",
+      "phonetic": "sumimasen"
+    },
+    {
+      "group": "Basis",
+      "nl": "Spreekt u Engels?",
+      "en": "Do you speak English?",
+      "ja": "英語を話せますか？",
+      "phonetic": "eigo o hanasemasu ka?"
+    },
+    {
+      "group": "Vervoer",
+      "nl": "Waar is het station?",
+      "en": "Where is the station?",
+      "ja": "駅はどこですか？",
+      "phonetic": "eki wa doko desu ka?"
+    },
+    {
+      "group": "Vervoer",
+      "nl": "Welk perron?",
+      "en": "Which platform?",
+      "ja": "何番線ですか？",
+      "phonetic": "nanbansen desu ka?"
+    },
+    {
+      "group": "Restaurant",
+      "nl": "Vier personen",
+      "en": "Four people",
+      "ja": "4人です",
+      "phonetic": "yonin desu"
+    },
+    {
+      "group": "Restaurant",
+      "nl": "De rekening, alstublieft",
+      "en": "The bill, please",
+      "ja": "お会計お願いします",
+      "phonetic": "okaikei onegaishimasu"
+    },
+    {
+      "group": "Restaurant",
+      "nl": "Zonder knoflook, alstublieft",
+      "en": "Without garlic, please",
+      "ja": "にんにく抜きでお願いします",
+      "phonetic": "ninniku nuki de onegaishimasu"
+    },
+    {
+      "group": "Praktisch",
+      "nl": "Waar is het toilet?",
+      "en": "Where is the restroom?",
+      "ja": "トイレはどこですか？",
+      "phonetic": "toire wa doko desu ka?"
+    },
+    {
+      "group": "Hotel",
+      "nl": "Kunt u onze bagage bewaren?",
+      "en": "Can you store our luggage?",
+      "ja": "荷物を預かっていただけますか？",
+      "phonetic": "nimotsu o azukatte itadakemasu ka?"
+    },
+    {
+      "group": "Hotel",
+      "nl": "Kunt u een taxi bellen?",
+      "en": "Can you call a taxi?",
+      "ja": "タクシーを呼んでいただけますか？",
+      "phonetic": "takushī o yonde itadakemasu ka?"
+    }
+  ]
+}

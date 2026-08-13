@@ -1,7 +1,6 @@
 {
-  "name": "Japan 2026 Reisplanner",
+  "name": "Japan 2026 Reisplanner V2",
   "short_name": "Japan 2026",
-  "description": "Offline reisplanner voor Japan oktober 2026",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

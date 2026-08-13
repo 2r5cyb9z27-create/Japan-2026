@@ -1,180 +1,38 @@
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#701421">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Japan 2026">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <title>Japan 2026</title>
-  <style>
-    :root { --wine:#701421; --navy:#10264d; --cream:#f7f3ed; --card:#fff; --line:#ded7ce; --muted:#6c6a67; }
-    * { box-sizing:border-box; }
-    html,body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:var(--cream); color:#171717; }
-    body { padding-bottom:calc(74px + env(safe-area-inset-bottom)); }
-    header {
-      position:sticky; top:0; z-index:20; padding:calc(12px + env(safe-area-inset-top)) 16px 12px;
-      background:rgba(247,243,237,.94); backdrop-filter:blur(16px); border-bottom:1px solid var(--line);
-    }
-    .top { display:flex; gap:12px; align-items:center; max-width:950px; margin:auto; }
-    .logo { width:46px;height:46px;border-radius:12px;object-fit:cover; }
-    h1 { font-size:20px; margin:0; color:var(--navy); }
-    .sub { color:var(--muted); font-size:13px; margin-top:2px; }
-    main { max-width:950px; margin:auto; padding:14px; }
-    .hero { background:var(--wine); color:white; border-radius:18px; padding:18px; margin-bottom:14px; }
-    .hero strong { font-size:22px; display:block; }
-    .hero p { margin:5px 0 0; opacity:.9; }
-    .controls { display:flex; gap:8px; margin:12px 0 16px; }
-    button { font:inherit; }
-    .btn { border:0;border-radius:12px;padding:11px 14px;background:var(--navy);color:white;font-weight:650; }
-    .btn.secondary { background:white;color:var(--navy);border:1px solid var(--line); }
-    .group-title { color:var(--wine); font-size:14px; text-transform:uppercase; letter-spacing:.08em; margin:20px 4px 8px; font-weight:750; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-    .day {
-      background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;
-      display:flex; flex-direction:column; min-height:190px; cursor:pointer;
-    }
-    .day img { width:100%; aspect-ratio:3/2; object-fit:cover; object-position:top; background:#eee; }
-    .day .meta { padding:11px; }
-    .day .title { font-weight:720; color:var(--navy); font-size:15px; }
-    .day .date { color:var(--wine); font-weight:700; font-size:12px; margin-top:3px; }
-    .day .desc { color:var(--muted); font-size:12px; margin-top:4px; }
-    .today { outline:3px solid #d39b2b; outline-offset:-3px; }
-    nav {
-      position:fixed; left:0;right:0;bottom:0;z-index:30;height:calc(64px + env(safe-area-inset-bottom));
-      padding-bottom:env(safe-area-inset-bottom);background:rgba(255,255,255,.96);border-top:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;gap:8px;
-    }
-    nav button { border:0;background:transparent;color:var(--navy);font-weight:650;padding:10px 16px;border-radius:12px; }
-    nav button.active { background:#eee8e2;color:var(--wine); }
-    #viewer { display:none; position:fixed; inset:0; z-index:50; background:#111; flex-direction:column; }
-    #viewer.open { display:flex; }
-    .viewerbar {
-      flex:0 0 auto; display:flex; align-items:center; gap:8px; padding:calc(8px + env(safe-area-inset-top)) 10px 8px;
-      background:#161616;color:white;
-    }
-    .viewerbar button { background:#2d2d2d;color:white;border:0;border-radius:10px;padding:9px 12px; }
-    .viewer-title { flex:1; min-width:0; }
-    .viewer-title strong,.viewer-title span { display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
-    .viewer-title span { font-size:12px;color:#bdbdbd;margin-top:2px; }
-    .canvas { flex:1; overflow:auto; -webkit-overflow-scrolling:touch; display:flex; justify-content:center; align-items:flex-start; padding:12px; }
-    .canvas img { width:min(100%,900px); height:auto; display:block; background:white; border-radius:4px; }
-    .viewerbottom { flex:0 0 auto; display:flex;gap:8px;justify-content:center;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:#161616; }
-    .viewerbottom button { border:0;border-radius:10px;padding:10px 18px;background:#2d2d2d;color:white;font-weight:650; }
-    .viewerbottom button:disabled { opacity:.35; }
-    .install-note { font-size:12px;color:var(--muted);padding:12px 2px 2px;line-height:1.45; }
-    @media (min-width:700px) { .grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
-  </style>
-</head>
-<body>
-<header>
-  <div class="top">
-    <img class="logo" src="icons/icon-192.png" alt="">
-    <div><h1>Japan 2026</h1><div class="sub">9 - 24 oktober · offline reisplanner</div></div>
-  </div>
-</header>
-<main id="home">
-  <section class="hero"><strong>Japan Reisplanner</strong><p>Alle 20 pagina's van jullie itinerary, in reisvolgorde.</p></section>
-  <div class="controls">
-    <button class="btn" id="todayBtn">Open vandaag</button>
-    <button class="btn secondary" id="firstBtn">Vanaf begin</button>
-  </div>
-  <div id="cards"></div>
-  <div class="install-note">Na installatie op het beginscherm worden de pagina's lokaal gecachet en blijven ze beschikbaar zonder internet.</div>
-</main>
-
-<nav>
-  <button class="active" id="navHome">Overzicht</button>
-  <button id="navToday">Vandaag</button>
-</nav>
-
-<section id="viewer" aria-hidden="true">
-  <div class="viewerbar">
-    <button id="closeBtn">←</button>
-    <div class="viewer-title"><strong id="vTitle"></strong><span id="vSub"></span></div>
-    <button id="shareBtn">Delen</button>
-  </div>
-  <div class="canvas"><img id="pageImg" alt="Itinerary pagina"></div>
-  <div class="viewerbottom">
-    <button id="prevBtn">← Vorige</button>
-    <button id="nextBtn">Volgende →</button>
-  </div>
-</section>
-
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#701421"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-192.png"><title>Japan 2026 V2</title>
+<style>
+:root{--w:#701421;--n:#10264d;--c:#f7f3ed;--line:#ddd5cb;--m:#6d6964}*{box-sizing:border-box}body{margin:0;background:var(--c);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:#171717;padding-bottom:78px}header{position:sticky;top:0;z-index:9;background:rgba(247,243,237,.96);backdrop-filter:blur(15px);border-bottom:1px solid var(--line);padding:12px 14px}.head{max-width:900px;margin:auto;display:flex;gap:10px;align-items:center}.head img{width:44px;height:44px;border-radius:10px}.head b{color:var(--n);font-size:19px}.head small{display:block;color:var(--m)}main{max-width:900px;margin:auto;padding:14px}.view{display:none}.view.on{display:block}.hero{background:var(--w);color:white;border-radius:18px;padding:17px;margin-bottom:13px}.hero h2{margin:0 0 4px}.hero p{margin:0;opacity:.9}.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}.btn{border:1px solid var(--line);border-radius:12px;padding:11px;background:white;color:var(--n);font:inherit;font-weight:750}.btn.primary{background:var(--n);color:white;border-color:var(--n)}.datehead{font-size:13px;color:var(--w);font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin:18px 3px 7px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:9px}.title{font-weight:800;color:var(--n)}.city,.muted{font-size:12px;color:var(--m);margin-top:3px}.timeline{border-left:3px solid #e6dfd7;margin-top:11px;padding-left:12px}.act{margin-bottom:12px}.act:last-child{margin-bottom:0}.time{font-size:12px;color:var(--w);font-weight:800}.act b{display:block;margin-top:1px}.note{font-size:13px;color:var(--m);margin-top:2px;line-height:1.35}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.actions a,.actions button{border:1px solid var(--line);background:white;color:var(--n);text-decoration:none;border-radius:9px;padding:8px 10px;font-size:13px;font-weight:750}.actions .primary{background:var(--n);color:white;border-color:var(--n)}details{margin-top:10px}.ref{width:100%;border:1px solid var(--line);border-radius:10px;margin-top:8px}.phrasegrid{display:grid;gap:8px}.jp{font-size:20px;margin:5px 0}.phon{font-weight:750;color:var(--w)}.speak{float:right;border:0;border-radius:9px;padding:7px;background:#eee7df}label{font-size:12px;color:var(--m);font-weight:750;display:block;margin:9px 0 4px}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:white;font:inherit}.adminActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.adminActions button{border:0;border-radius:10px;padding:10px 12px;background:var(--n);color:white;font-weight:750}.adminActions .secondary{background:white;color:var(--n);border:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(255,255,255,.97);border-top:1px solid var(--line);display:flex;justify-content:center;align-items:center;z-index:10}nav button{border:0;background:transparent;color:var(--n);padding:10px 9px;font-weight:750}nav button.on{background:#eee7df;color:var(--w);border-radius:10px}@media(min-width:700px){.quick{grid-template-columns:repeat(4,1fr)}.phrasegrid{grid-template-columns:repeat(2,1fr)}}@media print{header,nav,.quick{display:none!important}body{padding:0;background:white}.view{display:none!important}#daysView{display:block!important}.card{break-inside:avoid}}
+</style></head><body>
+<header><div class="head"><img src="icons/icon-192.png"><div><b>Japan 2026</b><small>V2 · één masterbestand</small></div></div></header><main>
+<section id="daysView" class="view on"><div class="hero"><h2>Japan Reisplanner</h2><p id="sub"></p></div><div class="quick"><button class="btn primary" id="today">Vandaag</button><button class="btn" id="home">Naar hotel</button><button class="btn" data-go="phrasesView">Taal</button><button class="btn" onclick="print()">Print / PDF</button></div><div id="days"></div></section>
+<section id="hotelsView" class="view"><div class="hero"><h2>Hotels</h2><p>Route en officiële website.</p></div><div id="hotels"></div></section>
+<section id="phrasesView" class="view"><div class="hero"><h2>Taal</h2><p>Nederlands · English · 日本語 · fonetisch · audio</p></div><div id="phrases"></div></section>
+<section id="adminView" class="view"><div class="hero"><h2>Admin</h2><p>Wijzig de master zonder Excel → plaatje → PDF → app.</p></div><div class="card"><p class="muted"><b>Nieuwe workflow:</b> wijzig hier → lokaal testen → exporteer <b>master.json</b> → vervang alleen master.json op GitHub.</p><label>Pagina / dag</label><select id="sel"></select><label>Titel</label><input id="et"><label>Stad / regio</label><input id="ec"><label>Activiteiten — één per regel: tijd | titel | notitie | place-id</label><textarea id="ea" rows="14"></textarea><div class="adminActions"><button id="save">Lokaal opslaan</button><button id="export">Exporteer master.json</button><button class="secondary" id="reset">Lokale wijzigingen wissen</button></div><div id="status" class="muted"></div></div></section>
+</main><nav><button class="on" data-go="daysView">Dagen</button><button data-go="hotelsView">Hotels</button><button data-go="phrasesView">Taal</button><button data-go="adminView">Admin</button></nav>
 <script>
-const pages = [{"n": 1, "title": "Japan 2026", "subtitle": "Voorblad & reisoverzicht", "date": null, "group": "Overzicht"}, {"n": 2, "title": "Praktische tips voor Japan", "subtitle": "Suica, geld, etiquette & voorbereiding", "date": null, "group": "Overzicht"}, {"n": 3, "title": "Haneda Airport - Terminal 3", "subtitle": "Aankomstinstructies", "date": "2026-10-10", "group": "Tokyo I"}, {"n": 4, "title": "Dag 1 - Aankomst Tokyo", "subtitle": "Shiba Park & eerste avond", "date": "2026-10-10", "group": "Tokyo I"}, {"n": 5, "title": "Dag 2 - Asakusa, Ueno & Shibuya", "subtitle": "Tour met Lauries", "date": "2026-10-11", "group": "Tokyo I"}, {"n": 6, "title": "Tokyo naar Hakone", "subtitle": "Trein, bagage & aankomst", "date": "2026-10-12", "group": "Hakone"}, {"n": 7, "title": "Ryokan & Onsen", "subtitle": "Traditionele Japanse overnachting", "date": "2026-10-12", "group": "Hakone"}, {"n": 8, "title": "Dag 3 - Hakone Highlights", "subtitle": "Museum, Owakudani & Lake Ashi", "date": "2026-10-12", "group": "Hakone"}, {"n": 9, "title": "Dag 4 - Hakone & naar Kyoto", "subtitle": "Laatste Hakone-ochtend en transfer", "date": "2026-10-13", "group": "Hakone / Kyoto"}, {"n": 10, "title": "Dag 5 - Oost-Kyoto", "subtitle": "Kiyomizu, Higashiyama & Gion", "date": "2026-10-14", "group": "Kyoto"}, {"n": 11, "title": "Dag 6 - West-Kyoto & Natuur", "subtitle": "Arashiyama, trein & rivierboot", "date": "2026-10-15", "group": "Kyoto"}, {"n": 12, "title": "Dag 7 - Osaka", "subtitle": "Volledige dagtrip", "date": "2026-10-16", "group": "Kyoto / Osaka"}, {"n": 13, "title": "Dag 8 - Zuid-Kyoto & Centrum", "subtitle": "Fushimi Inari, Nishiki & Gion Night Walk", "date": "2026-10-17", "group": "Kyoto"}, {"n": 14, "title": "Dag 9 - Hiroshima", "subtitle": "Historische wandeltocht & Peace Museum", "date": "2026-10-18", "group": "Hiroshima"}, {"n": 15, "title": "Dag 10 - Miyajima", "subtitle": "Itsukushima & Mount Misen", "date": "2026-10-19", "group": "Hiroshima"}, {"n": 16, "title": "Dag 11 - Tokyo Part 2", "subtitle": "Aankomst Ginza", "date": "2026-10-20", "group": "Tokyo II"}, {"n": 17, "title": "Dag 12 - TeamLab + keuze", "subtitle": "Skytree of Shiodome/Ginza", "date": "2026-10-21", "group": "Tokyo II"}, {"n": 18, "title": "Dag 13 - Shibuya, Harajuku & Shinjuku", "subtitle": "West-Tokyo", "date": "2026-10-22", "group": "Tokyo II"}, {"n": 19, "title": "Dag 14 - Kamakura", "subtitle": "Dagtrip", "date": "2026-10-23", "group": "Tokyo II"}, {"n": 20, "title": "Dag 15 - Terugreis naar huis", "subtitle": "Haneda & vertrek", "date": "2026-10-24", "group": "Vertrek"}];
-let current = 0;
-const cards = document.getElementById('cards');
-const viewer = document.getElementById('viewer');
-const img = document.getElementById('pageImg');
-
-function fmtDate(iso) {
-  if(!iso) return '';
-  return new Intl.DateTimeFormat('nl-NL', {weekday:'short',day:'numeric',month:'short'}).format(new Date(iso+'T12:00:00'));
+let M;const KEY='jp26v2local';const q=s=>document.querySelector(s);const enc=encodeURIComponent;
+function mapurl(x){return 'https://www.google.com/maps/dir/?api=1&destination='+enc(x)}
+function p(id){return M.places.find(x=>x.id===id)}function h(id){return M.hotels.find(x=>x.id===id)}
+function iso(){let d=new Date;return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function go(id){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id===id));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x.dataset.go===id));scrollTo(0,0)}
+function render(){
+ q('#sub').textContent=M.trip.subtitle; let out='',last='';
+ M.days.forEach((d,i)=>{if(d.date!==last){last=d.date;out+=`<div class="datehead">${new Intl.DateTimeFormat('nl-NL',{weekday:'long',day:'numeric',month:'long'}).format(new Date(d.date+'T12:00:00'))}</div>`}
+ let acts=d.activities.map(a=>{let pl=a.place?p(a.place):null;let links=pl?`<div class="actions"><a class="primary" target="_blank" href="${mapurl(pl.maps_query||pl.name)}">Route</a><a target="_blank" href="${pl.website}">Website</a></div>`:'';return `<div class="act"><div class="time">${a.time||''}</div><b>${a.title||''}</b>${a.note?`<div class="note">${a.note}</div>`:''}${links}</div>`}).join('');
+ let ho=h(d.hotel_id);let hb=ho?`<div class="actions"><a class="primary" target="_blank" href="${mapurl(ho.maps_query||ho.address)}">Naar hotel</a><a target="_blank" href="${ho.website}">Hotel website</a></div>`:'';
+ out+=`<article class="card" data-date="${d.date}"><div class="title">${d.title}</div><div class="city">${d.city||''}</div><div class="timeline">${acts}</div>${hb}<details><summary class="muted">Originele grafische pagina</summary><img class="ref" src="pages/page-${String(d.reference_page).padStart(2,'0')}.jpg"></details></article>`});q('#days').innerHTML=out;
+ q('#hotels').innerHTML=M.hotels.map(x=>`<div class="card"><div class="title">${x.name}</div><div class="city">${x.city}</div><div class="note">${x.address}</div><div class="actions"><a class="primary" target="_blank" href="${mapurl(x.maps_query||x.address)}">Route vanaf hier</a><a target="_blank" href="${x.website}">Website</a></div></div>`).join('');
+ let groups=[...new Set(M.phrases.map(x=>x.group))];q('#phrases').innerHTML=groups.map(g=>`<div class="datehead">${g}</div><div class="phrasegrid">${M.phrases.filter(x=>x.group===g).map((x,j)=>`<div class="card phrase"><button class="speak" data-ja="${x.ja}">🔊</button><b>${x.nl}</b><div class="muted">${x.en}</div><div class="jp">${x.ja}</div><div class="phon">${x.phonetic}</div></div>`).join('')}</div>`).join('');
+ document.querySelectorAll('.speak').forEach(b=>b.onclick=()=>{let u=new SpeechSynthesisUtterance(b.dataset.ja);u.lang='ja-JP';speechSynthesis.cancel();speechSynthesis.speak(u)});
+ let s=q('#sel');s.innerHTML=M.days.map((d,i)=>`<option value="${i}">${d.date} — ${d.title}</option>`).join('');fill(0)
 }
-function todayIndex() {
-  const now = new Date();
-  const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0'), d=String(now.getDate()).padStart(2,'0');
-  const iso = `${y}-${m}-${d}`;
-  let idx = pages.findIndex(p=>p.date===iso && p.n>=4);
-  if(idx<0) idx = pages.findIndex(p=>p.date===iso);
-  return idx>=0 ? idx : 0;
-}
-function renderCards() {
-  cards.innerHTML='';
-  let group='';
-  pages.forEach((p,i)=>{
-    if(p.group!==group) {
-      group=p.group;
-      const h=document.createElement('div'); h.className='group-title'; h.textContent=group; cards.appendChild(h);
-      const g=document.createElement('div'); g.className='grid'; g.dataset.group=group; cards.appendChild(g);
-    }
-    const grid=[...cards.querySelectorAll('.grid')].at(-1);
-    const el=document.createElement('article');
-    el.className='day'+(i===todayIndex()?' today':'');
-    el.innerHTML=`<img loading="lazy" src="pages/page-${String(p.n).padStart(2,'0')}.jpg" alt="">
-      <div class="meta"><div class="title">${p.title}</div>${p.date?`<div class="date">${fmtDate(p.date)}</div>`:''}<div class="desc">${p.subtitle}</div></div>`;
-    el.addEventListener('click',()=>openPage(i)); grid.appendChild(el);
-  });
-}
-function openPage(i) {
-  current=Math.max(0,Math.min(pages.length-1,i));
-  const p=pages[current];
-  document.getElementById('vTitle').textContent=p.title;
-  document.getElementById('vSub').textContent=(p.date?fmtDate(p.date)+' · ':'')+p.subtitle;
-  img.src=`pages/page-${String(p.n).padStart(2,'0')}.jpg`;
-  document.getElementById('prevBtn').disabled=current===0;
-  document.getElementById('nextBtn').disabled=current===pages.length-1;
-  viewer.classList.add('open'); viewer.setAttribute('aria-hidden','false');
-  history.replaceState(null,'','#page-'+p.n);
-}
-function closeViewer() {
-  viewer.classList.remove('open'); viewer.setAttribute('aria-hidden','true'); history.replaceState(null,'','#');
-}
-document.getElementById('closeBtn').addEventListener('click',closeViewer);
-document.getElementById('prevBtn').addEventListener('click',()=>openPage(current-1));
-document.getElementById('nextBtn').addEventListener('click',()=>openPage(current+1));
-document.getElementById('todayBtn').addEventListener('click',()=>openPage(todayIndex()));
-document.getElementById('navToday').addEventListener('click',()=>openPage(todayIndex()));
-document.getElementById('firstBtn').addEventListener('click',()=>openPage(0));
-document.getElementById('navHome').addEventListener('click',()=>{closeViewer();scrollTo({top:0,behavior:'smooth'})});
-document.getElementById('shareBtn').addEventListener('click',async()=>{
-  const p=pages[current];
-  if(navigator.share) {
-    try { await navigator.share({title:p.title,text:p.subtitle,url:location.href}); } catch(e) {}
-  }
-});
-let sx=0;
-img.addEventListener('touchstart',e=>{if(e.touches.length===1)sx=e.touches[0].clientX;},{passive:true});
-img.addEventListener('touchend',e=>{
-  const dx=e.changedTouches[0].clientX-sx;
-  if(Math.abs(dx)>90) { if(dx<0&&current<pages.length-1)openPage(current+1); if(dx>0&&current>0)openPage(current-1); }
-},{passive:true});
-renderCards();
-const match=location.hash.match(/page-(\d+)/); if(match) openPage(Math.max(0,Math.min(19,Number(match[1])-1)));
-if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));
-</script>
-</body></html>
+function fill(i){let d=M.days[i];q('#et').value=d.title;q('#ec').value=d.city||'';q('#ea').value=d.activities.map(a=>[a.time||'',a.title||'',a.note||'',a.place||''].join(' | ')).join('\n')}
+q('#sel').onchange=e=>fill(+e.target.value);
+q('#save').onclick=()=>{let d=M.days[+q('#sel').value];d.title=q('#et').value.trim();d.city=q('#ec').value.trim();d.activities=q('#ea').value.split('\n').filter(x=>x.trim()).map(line=>{let [time='',title='',note='',place='']=line.split('|').map(x=>x.trim());return{time,title,note,place:place||null}});localStorage.setItem(KEY,JSON.stringify(M));render();q('#status').textContent='Lokaal opgeslagen en direct zichtbaar.'}
+q('#export').onclick=()=>{let blob=new Blob([JSON.stringify(M,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='master.json';a.click();q('#status').textContent='master.json geëxporteerd. Vervang alleen dit bestand op GitHub.'}
+q('#reset').onclick=()=>{localStorage.removeItem(KEY);location.reload()}
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+q('#today').onclick=()=>{go('daysView');let el=document.querySelector(`[data-date="${iso()}"]`);(el||document.querySelector('.card'))?.scrollIntoView({behavior:'smooth'})}
+q('#home').onclick=()=>{let rec=M.days.find(x=>x.date===iso()&&x.hotel_id)||M.days.find(x=>x.hotel_id);let ho=rec&&h(rec.hotel_id);if(ho)location.href=mapurl(ho.maps_query||ho.address);else alert('Geen hotel gekoppeld aan deze dag.')}
+fetch('./master.json?'+Date.now()).then(r=>r.json()).then(base=>{M=localStorage.getItem(KEY)?JSON.parse(localStorage.getItem(KEY)):base;render()})
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));
+</script></body></html>
