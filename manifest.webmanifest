@@ -1,5 +1,5 @@
 {
-  "name": "Japan 2026 Reisplanner V2",
+  "name": "Japan 2026 Reisplanner V2.1",
   "short_name": "Japan 2026",
   "start_url": "./index.html",
   "scope": "./",
@@ -17,5 +17,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "description": "Japan reisplanner met high-resolution originele grafische pagina's"
 }

@@ -29,6 +29,24 @@
       "address": "1-13-15 Ginza, Chuo City, Tokyo",
       "website": "https://www.daiwaroynet.jp/en/ginza/",
       "maps_query": "Daiwa Roynet Hotel Ginza PREMIER"
+    },
+    {
+      "id": "aura-tachibana",
+      "name": "Aura Tachibana",
+      "city": "Hakone",
+      "address": "574 Yumoto, Hakone-machi, Ashigarashimo-gun, Kanagawa 250-0311, Japan",
+      "website": "https://aura-tachibana.com/index-e/",
+      "maps_query": "Aura Tachibana, 574 Yumoto, Hakone, Kanagawa 250-0311, Japan",
+      "stay": "12–13 oktober 2026"
+    },
+    {
+      "id": "sora-niwa-kyoto",
+      "name": "Shijo Kawaramachi Onsen Sora Niwa Terrace Kyoto",
+      "city": "Kyoto",
+      "address": "2-324 Inaricho, Kawaramachidori Shijosagaru, Shimogyo-ku, Kyoto 600-8022, Japan",
+      "website": "https://soraniwa-hotel.jp/en/?lang=en",
+      "maps_query": "Shijo Kawaramachi Onsen Sora Niwa Terrace Kyoto, Kyoto, Japan",
+      "stay": "13–18 oktober 2026"
     }
   ],
   "places": [
