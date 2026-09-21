@@ -1,33 +1,15 @@
-JAPAN 2026 — V2.1
+JAPAN 2026 - FINAL APP
+Updated 21 September 2026 from the finalized 22-page booklet.
 
-WHAT CHANGED
-============
-- Every original graphical itinerary page is ALWAYS visible.
-- The graphics are the original PNG files embedded in the latest Excel workbook.
-- No JPEG recompression: about 1.6–2.6 MB per page instead of ~160–220 KB.
-- Tap any graphical page for a full-screen high-resolution viewer.
-- Viewer supports pinch zoom, double-tap zoom, + / - and Fit.
-- All V2 features remain: master.json admin workflow, Today, hotel routing,
-  attraction route/website links, phrasebook + Japanese speech, print/PDF, offline cache.
+SOURCE OF TRUTH
+master.json is the app itinerary. The 22 graphical pages in /pages are exact reference renders from the finalized booklet.
 
-IMPORTANT
-=========
-V2.1 is much larger (~45 MB) because the graphical pages are deliberately kept high quality.
-The first load on a phone may therefore take longer, but subsequent use is cached for offline use.
+PUBLISH / UPDATE
+Upload the complete contents of this folder to the existing GitHub Pages repository (japan-2026), replacing the old files.
+Because the service-worker cache name changed to jp26-final-v3, reopening the app will refresh the offline package.
 
-GITHUB UPDATE
-=============
-For this upgrade, upload the entire contents of this V2.1 folder to the existing japan-2026
-repository and commit directly to main. It replaces index.html, service-worker.js, manifest
-and pages/, while preserving master.json.
+LATER ITINERARY EDITS
+Use Admin -> edit -> Lokaal opslaan -> Exporteer master.json, then replace master.json on GitHub.
 
-After GitHub Pages redeploys:
-1. Open the GitHub Pages URL once in Safari.
-2. Refresh.
-3. Fully close and reopen the Home Screen app.
-If iOS still shows old cached content, remove the Home Screen icon and add it again once.
-
-FUTURE ITINERARY EDITS
-======================
-Admin -> edit -> Export master.json -> replace ONLY master.json on GitHub.
-You do not need Excel/PDF/app rebuilding for normal schedule changes.
+FEATURES
+Today; Get Me To Hotel; hotels and routes; attraction links; phrasebook with Japanese audio; offline caching; graphical booklet pages; Print/PDF; Admin editor.
