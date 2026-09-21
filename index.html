@@ -42,6 +42,6 @@ q('#vplus').onclick=()=>{VZ=Math.min(4,VZ+.25);q('#vimg').style.transform=`scale
 q('#vminus').onclick=()=>{VZ=Math.max(.5,VZ-.25);q('#vimg').style.transform=`scale(${VZ})`};
 q('#vfit').onclick=()=>{VZ=1;q('#vimg').style.transform='scale(1)';q('#vbody').scrollTo(0,0)};
 
-fetch('./master.json?'+Date.now()).then(r=>r.json()).then(base=>{M=localStorage.getItem(KEY)?JSON.parse(localStorage.getItem(KEY)):base;render()})
+fetch('./master.json?'+Date.now()).then(r=>r.json()).then(base=>{M=localStorage.getItem(KEY)?JSON.parse(localStorage.getItem(KEY)):base;render();go('bookView')})
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));
 </script></body></html>
