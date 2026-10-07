@@ -1,0 +1,4 @@
+Japan 2026 complete app package rebuilt from the revised Excel master.
+Upload/replace the complete contents of this ZIP in the existing Japan-2026 app/repository.
+This package contains the historical app architecture plus 22 Excel-extracted page graphics.
+Cache version: jp26-v2-4-excel-final
